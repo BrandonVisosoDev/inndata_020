@@ -14,7 +14,7 @@ public abstract class ProductoAbstracto implements Producto {
     }
 
     // Implementaciones de los métodos de la interfaz
-    
+
     @Override
     public String getNombre() {
         return nombre;
