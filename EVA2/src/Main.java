@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
@@ -41,7 +42,6 @@ public class Main {
                         }
 
 
-
                     if (categoriaEncontrada != null) {
                         System.out.println("¿Qué tipo de producto deseas agregar?");
                         System.out.println("1. Libro");
@@ -53,13 +53,17 @@ public class Main {
                         String nombre = sc.nextLine();
                         System.out.print("Precio: ");
                         double precio = sc.nextDouble();
-                        
-                        // Aqui tiraremos una exception
 
                         System.out.print("Código: ");
-                        int codigo = sc.nextInt();
+                        int codigo = 0; // inicializamos
+                        try {
+                            codigo = sc.nextInt();
+                            sc.nextLine(); // limpiar buffer
+                        } catch (InputMismatchException e) {
+                            System.out.println("Error: Debes ingresar un número entero para el código.");
+                            sc.nextLine(); // limpiar el buffer para evitar bucles infinitos
+                        }
 
-                        //
                         sc.nextLine(); // limpiar buffer
                         System.out.print("Descripción: ");
                         String descripcion = sc.nextLine();
