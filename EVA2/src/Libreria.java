@@ -1,27 +1,26 @@
+public class Libreria {
 
-    public class Libreria {
+    private String nombreLibreria;
+    private Inventario<Categoria> inventario; // Inventario genérico de categorías
 
-        private String nombreLibreria;
-        private Inventario<Categoria> inventario; // Inventario genérico de categorías
+    public Libreria(String nombreLibreria) {
+        this.nombreLibreria = nombreLibreria;
+        this.inventario = new Inventario<>();
+    }
 
-        public Libreria(String nombreLibreria) {
-            this.nombreLibreria = nombreLibreria;
-            this.inventario = new Inventario<>();
-        }
+    public void agregarCategoria(Categoria categoria) {
+        inventario.agregar(categoria);
+    }
 
-        // Agregar categoría a la librería
-        public void agregarCategoria(Categoria categoria) {
-            inventario.agregar(categoria);
-        }
-
-        // Mostrar todas las categorías y sus productos
-        public void mostrarLibreria() {
-            System.out.println("=== Librería: " + nombreLibreria + " ===");
-            for (Categoria c : inventario.getElementos()) {
-                c.mostrarProductos();
-            }
+    public void mostrarLibreria() {
+        System.out.println("=== Librería: " + nombreLibreria + " ===");
+        for (Categoria c : inventario.getElementos()) {
+            c.mostrarProductos();
         }
     }
 
-
-
+    // Aquí sí va el getter correcto
+    public Inventario<Categoria> getInventario() {
+        return inventario;
+    }
+}

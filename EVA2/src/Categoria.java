@@ -11,6 +11,11 @@ public class Categoria {
         this.productos = new ArrayList<>();
     }
 
+    // Getter para el nombre de la categoría
+    public String getNombreCategoria() {
+        return nombreCategoria;
+    }
+
     // Agregar producto a la lista
     public void agregarProducto(Producto producto) {
         productos.add(producto);
@@ -20,7 +25,7 @@ public class Categoria {
     public void mostrarProductos() {
         System.out.println("=== Categoría: " + nombreCategoria + " ===");
         for (Producto p : productos) {
-            p.mostrarProducto(); // Polimorfismo: cada producto se muestra según su clase
+            p.mostrarProducto(); // Polimorfismo
             System.out.println("-------------------");
         }
     }
